@@ -1,0 +1,10 @@
+.register {
+    margin-top: 2rem;
+}
+label {
+    text-align: left;
+}
+input {
+    height: 3rem;
+    margin-bottom: .5rem !important;
+}

@@ -1,20 +1,12 @@
-import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import Register from "./components/Register";
-import Login from "./components/Login";
+import React from 'react'
+import { Link, Route } from "react-router-dom";
+import './app.css'
 
-function App() {
+export default function App() {
   return (
-    <>
-      Hello World
-      <Routes>
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
+    <div>
+      <Link style={{ background: "green", color: "#fff", display: "inline-block", padding: "1rem 2rem", textTransform: "uppercase", borderRadius: "1rem", fontWeight: "bold" }} to="/login">Click me to Login</Link>
 
-
-    </>
-  );
+    </div>
+  )
 }
-
-export default App;
