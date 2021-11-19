@@ -7,12 +7,12 @@ import { app } from './firebaseConfig'
 import App from './App';
 import Register from "./components/Register";
 import Login from "./components/Login";
-import { createStore, applyMiddleware } from 'redux';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import rootReducers from './reducers';
 
-const store = createStore(() => { }, composeWithDevTools())
-
+const store = createStore(rootReducers, composeWithDevTools())
 
 export default class Routing extends React.Component {
   constructor(props) {
@@ -37,11 +37,22 @@ export default class Routing extends React.Component {
   render() {
     return (
       <>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
+        {
+          this.state.tracker ?
+            <Routes>
+              <Route path="/" element={<App />} />
+              <Route path="/register" element={<Navigate to="/" />} />
+              <Route path="/login" element={<Navigate to="/" />} />
+            </Routes>
+
+            :
+
+            <Routes>
+              <Route path="/" element={<App />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+            </Routes>
+        }
       </>
     )
   }
