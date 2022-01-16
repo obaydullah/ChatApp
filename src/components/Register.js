@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import './register.css'
-import { Button, Segment, Message, Header, Icon, Container, Grid, Checkbox, Form } from 'semantic-ui-react'
+import './register.css';
+import Avatar from "../img/avatar.png";
+import { Image, Button, Segment, Message, Header, Icon, Container, Grid, Checkbox, Form } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 import { app } from '../firebaseConfig'
 import { getAuth, updateProfile, createUserWithEmailAndPassword } from "firebase/auth";
@@ -91,48 +92,54 @@ export default class Register extends Component {
                     <Grid textAlign="center" verticalAlign="middle">
                         <Grid.Column width="8">
                             <Segment>
-                                <Header color="blue" as='h2' icon textAlign='center'>
+                                <div className="awesomeStyle">
+                                    {/* <Header color="blue" as='h2' icon textAlign='center'>
                                     <Icon name='users' circular />
                                     Lets Join MERN ADDA
-                                </Header>
+                                </Header> */}
 
-                                {errorMsg ? <Message negative>
-                                    <Message.Header>{errorMsg}</Message.Header>
-                                </Message> : ""}
+                                    <Header as='h2' color="blue" as='h2' icon textAlign='center'>
+                                        <Image circular src={Avatar} /> <br />
+                                        Registration Page
+                                    </Header>
 
-                                {successMsg ? <Message positive>
-                                    <Message.Header>{successMsg}</Message.Header>
-                                </Message> : ""}
+                                    {errorMsg ? <Message negative>
+                                        <Message.Header>{errorMsg}</Message.Header>
+                                    </Message> : ""}
 
-                                <Form onSubmit={this.handleSubmit}>
-                                    <Form.Field>
-                                        <label style={{ fontSize: "1.2rem", color: "#333" }}> <Icon icon name="user"></Icon>User Name</label>
-                                        <input value={username} name="username" onChange={this.handleChange} type="text" style={{ fontSize: "1.3rem" }} placeholder='Type your Name' />
-                                    </Form.Field>
-                                    <Form.Field className={errorMsg.match(/email/i) ? "error" : ""}>
-                                        <label style={{ fontSize: "1.2rem" }}>
-                                            <Icon icon name="mail"></Icon>
-                                            Email</label>
-                                        <input value={email} name="email" onChange={this.handleChange} type="email" style={{ fontSize: "1.3rem" }} placeholder='Type your Email' />
-                                    </Form.Field>
-                                    <Form.Field className={errorMsg.match(/password/i) ? "error" : ""}>
-                                        <label style={{ fontSize: "1.2rem" }}>
-                                            <Icon icon name="lock"></Icon>
-                                            Password</label>
-                                        <input value={password} name="password" onChange={this.handleChange} type="password" style={{ fontSize: "1.3rem" }} placeholder='Your Password' />
-                                    </Form.Field>
-                                    <Form.Field className={errorMsg.match(/password/i) ? "error" : ""}>
-                                        <label style={{ fontSize: "1.2rem", color: "#333" }}>
-                                            <Icon icon name="repeat"></Icon>
-                                            Confirm Password</label>
-                                        <input value={confirmpassword} name="confirmpassword" onChange={this.handleChange} type="password" style={{ fontSize: "1.3rem" }} placeholder='Confirm your password' />
-                                    </Form.Field>
-                                    <Button className={!loader ? "primary" : "disabled loading"} type='submit'>Submit</Button>
-                                </Form>
+                                    {successMsg ? <Message positive>
+                                        <Message.Header>{successMsg}</Message.Header>
+                                    </Message> : ""}
+
+                                    <Form onSubmit={this.handleSubmit}>
+                                        <Form.Field>
+                                            <input value={username} name="username" onChange={this.handleChange} type="text" style={{ fontSize: "1.3rem" }} placeholder='Type your Name' required />
+                                            <label style={{ fontSize: "1.2rem", color: "#333" }}> User Name</label>
+                                        </Form.Field>
+                                        <Form.Field className={errorMsg.match(/email/i) ? "error" : ""}>
+                                            <input required value={email} name="email" onChange={this.handleChange} type="email" style={{ fontSize: "1.3rem" }} placeholder='Type your Email' />
+                                            <label style={{ fontSize: "1.2rem" }}>
+                                                Email</label>
+                                        </Form.Field>
+                                        <Form.Field className={errorMsg.match(/password/i) ? "error" : ""}>
+                                            <input required value={password} name="password" onChange={this.handleChange} type="password" style={{ fontSize: "1.3rem" }} placeholder='Your Password' />
+                                            <label style={{ fontSize: "1.2rem" }}>
+                                                Password</label>
+                                        </Form.Field>
+                                        <Form.Field className={errorMsg.match(/password/i) ? "error" : ""}>
+                                            <input required value={confirmpassword} name="confirmpassword" onChange={this.handleChange} type="password" style={{ fontSize: "1.3rem" }} placeholder='Confirm your password' />
+                                            <label style={{ fontSize: "1.2rem", color: "#333" }}>
+                                                Confirm Password</label>
+                                        </Form.Field>
+                                        <Button className={!loader ? "primary" : "disabled loading"} type='submit'>Submit</Button>
+                                    </Form>
+                                </div>
                             </Segment>
                             <Message>
                                 <Message.Header>Allready have an account ? <Link to="/login">Log In</Link> </Message.Header>
                             </Message>
+
+                            <h2 className="verticalText">Secure Chat</h2>
                         </Grid.Column>
                     </Grid>
                 </Container>

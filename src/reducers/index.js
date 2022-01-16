@@ -11,15 +11,36 @@ const userReducer = (state = initialState, action) => {
         case actionType.set_user:
             return {
                 currentUser: action.payload.currentUser,
-                isLoading: true
+                isLoading: false
+            }
+        case actionType.remove_user:
+            return {
+                ...initialState
             }
         default:
             return state
     }
 }
 
+const initialStateGruop = {
+    currentGroup: null
+}
+
+const groupReducer = (state = initialStateGruop, action) => {
+    switch (action.type) {
+        case actionType.set_current_group:
+            return {
+                ...state,
+                currentGroup: action.payload.currentgroup
+            }
+        default:
+            return state;
+    }
+}
+
 const rootReducers = combineReducers({
-    user: userReducer
+    user: userReducer,
+    group: groupReducer
 })
 
 export default rootReducers;

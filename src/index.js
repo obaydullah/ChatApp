@@ -17,7 +17,6 @@ const store = createStore(rootReducers, composeWithDevTools())
 export default class Routing extends React.Component {
   constructor(props) {
     super(props)
-
     this.state = {
       tracker: false
     }
@@ -34,6 +33,8 @@ export default class Routing extends React.Component {
     });
   }
 
+
+
   render() {
     return (
       <>
@@ -48,7 +49,7 @@ export default class Routing extends React.Component {
             :
 
             <Routes>
-              <Route path="/" element={<App />} />
+              <Route path="/" element={<Navigate to="/login" />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
             </Routes>

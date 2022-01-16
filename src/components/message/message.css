@@ -1,0 +1,37 @@
+.avatar img {
+    width: 4rem;
+}
+.avatar {
+    margin-right: 1rem;
+}
+
+.six.wide.column {
+    height: 100%;
+}
+
+
+.hello {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.ui.segment {
+    flex: 1 1 auto;
+    overflow-y: scroll;
+}
+.overflow {
+    overflow-y: scroll;
+    max-height: 65vh;
+}
+.right-aligned {
+    display: block;
+    text-align: right;
+    margin-top: 1rem;
+}
+.right-aligned img {
+    margin-left: auto;
+}
+.left-aligned {
+    margin-top: 1rem;
+}

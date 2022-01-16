@@ -3,8 +3,68 @@
 }
 label {
     text-align: left;
+    font-size: .9rem !important; 
 }
 input {
     height: 3rem;
     margin-bottom: .5rem !important;
+    background: none !important;
+}
+
+input:focus {
+    outline: none !important;
+    box-shadow: 0 1rem 2rem rgba(#000, 0.1) !important;
+    border-bottom: 3px solid green !important;
+}
+
+label {
+    margin-left: 1.5rem !important;
+    display: block !important;
+    transition: all 0.3s !important;
+}
+
+input:placeholder-shown + label {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-4rem) !important;
+}
+
+input:focus:invalid {
+    border-bottom: 3px solid red !important;
+}
+.awesomeStyle {
+    background: linear-gradient(90deg, transparent 0%, transparent 50%, rgb(0, 255, 136,.5) 50%, rgb(0, 217, 255,.3) 100%) !important;
+}
+.verticalText {
+    position: absolute;
+    top: 50%;
+    right:-15rem;
+    transform: rotate(270deg) translate(25%, 0%);
+    transform-origin: center;
+    text-orientation: use-glyph-orientation;
+    font-size: 2rem;
+    background: rgb(0, 217, 255);
+    color: #fff;
+    text-transform: uppercase;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: .2rem .3rem 1rem rgba(0,0,0,.5);
+    animation: light 1s ease .2s infinite; 
+    animation-direction: alternate;
+    letter-spacing: 1rem !important;
+}
+
+@keyframes light {
+    0% {
+        box-shadow: .2rem .3rem 1.1rem rgba(0,0,0,.5);
+    }
+    25% {
+        box-shadow: .3rem .3rem 1.2rem rgba(0,0,0,.6);
+    }
+    50% {
+        box-shadow: .4rem .4rem 1.3rem rgba(0,0,0,.7);
+    }
+    100% {
+        box-shadow: .5rem .5rem 1.4rem rgba(0,0,0,.8);
+    }
 }

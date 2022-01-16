@@ -1,0 +1,15 @@
+.normal {
+    color: #fff !important; 
+}
+.active {
+    color: #000 !important; 
+    background: #fff !important;
+    padding: .5rem !important;
+}
+.ui.icon.header {
+    background: green !important;
+}
+
+.ui.page.modals.dimmer.transition.visible.active {
+    background: rgba(0, 0, 0, .5) !important;
+}
